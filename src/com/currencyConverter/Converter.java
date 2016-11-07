@@ -17,7 +17,7 @@ import android.util.Log;
 /**
  * Using this class, we convert currencies to its foreign exchange. This class
  * uses google calculator to perform the conversion process
- * 
+ *
  * @author Bright Dadson
  */
 public final class Converter extends AsyncTask<String, Void, Double> {
@@ -27,7 +27,7 @@ public final class Converter extends AsyncTask<String, Void, Double> {
 
 	private double valueToConvert;
 	private double result;
-	
+
 	public double getResult() {
 		return result;
 	}
@@ -43,7 +43,7 @@ public final class Converter extends AsyncTask<String, Void, Double> {
 
 	/**
 	 * Convert submitted value from and to the submitted conversion codes.
-	 * 
+	 *
 	 * @param valueToConvert
 	 *            - Amount to convert
 	 * @param convertFrom
@@ -78,9 +78,9 @@ public final class Converter extends AsyncTask<String, Void, Double> {
 		try {
 			Log.d("MESSAGE", "Convert " + this.valueToConvert + " from "
 					+ this.convertFrom + " to " + this.convertTo);
-			String code = String.valueOf("/ig/calculator?h1=en&q="
-					+ valueToConvert + "" + convertFrom + "=?" + convertTo);
-			URL converterUrl = new URL("http://www.google.com" + code);
+			String code = String.valueOf("/finance/converter?a="
+					+ valueToConvert + "&from=" + convertFrom + "&to=" + convertTo);
+			URL converterUrl = new URL("https://www.google.com" + code);
 			URLConnection urlConnection = converterUrl.openConnection();
 
 			InputStream inputStream = urlConnection.getInputStream();
